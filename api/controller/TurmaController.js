@@ -1,16 +1,24 @@
 const database = require('../models')
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
-//Definindo CRUD para Nivel
+//Definindo CRUD para Turma
 class TurmaController{
-    //R - Read - buscar no banco - todos os registros
+    //R - Read - buscar no banco - todos os registros - com filtro por data
     static async pegaTodasTurmas(req,res){
+        const {data_inicial , data_final} = req.query
+        const where = {}
+        data_inicial || data_final ? where.data_inicio = {} : null;
+        data_inicial ? where.data_inicio[Op.gte] = data_inicial : null;
+        data_final ? where.data_inicio[Op.lte] = data_final : null;
         try{
-            const todosAsTrumas = await database.Turmas.findAll()
+            const todosAsTrumas = await database.Turmas.findAll({where})
             return res.status(200).json(todosAsTrumas)
         }catch(error){
             return res.status(500).json(error.mensage)
         }
     }
+
     //R - Read - buscar no banco - um registro
     static async pegaUmaTurma(req,res){
         const{id} = req.params
