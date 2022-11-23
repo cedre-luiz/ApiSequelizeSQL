@@ -8,13 +8,15 @@ const { deletaTurma } = require('../controller/TurmaController.js');
 const router = Router();
 
 //Verbos e rotas
-router.get('/turma', TurmaController.pegaTodasTurmas)
-router.get('/turma/:id', TurmaController.pegaUmaTurma)
-router.post('/turma', TurmaController.criarTurma)
-router.put('/turma/:id', TurmaController.atualizaTurma)
-router.delete('/turma/:id', TurmaController.deletaTurma)
-//Resataurar
-router.post('/turmas/:id/restaura', TurmaController.restauraTurma)
+router
+    .get('/turma', TurmaController.pegaTodasTurmas)
+    .get('/turma/:id', TurmaController.pegaUmaTurma)
+    .post('/turma', TurmaController.criarTurma)
+    .post('/turma/:id/restaura', TurmaController.restauraTurma)
+    .put('/turma/:id', TurmaController.atualizaTurma)
+    .delete('/turma/:id', TurmaController.deletaTurma)
+
+    
 
 //Exportar
 module.exports = router

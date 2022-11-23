@@ -42,7 +42,21 @@ module.exports = {
 			turma_id: 2,
 			createdAt: new Date(),
 			updatedAt: new Date()
+		},
+		{
+			status: "confirmado",
+			estudante_id: 37,
+			turma_id: 2,
+			createdAt: new Date(),
+			updatedAt: new Date()
+		},{
+			status: "confirmado",
+			estudante_id: 36,
+			turma_id: 2,
+			createdAt: new Date(),
+			updatedAt: new Date()
 		}
+
 		], {})
   },
 

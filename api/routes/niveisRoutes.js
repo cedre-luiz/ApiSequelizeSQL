@@ -13,7 +13,7 @@ router.post('/nivel', NivelController.criaNivel)
 router.put('/nivel/:id', NivelController.atualizaNivel)
 router.delete('/nivel/:id', NivelController.deletaNivel)
 //Restaurar
-router.post('/niveis/:id/restaura', NivelController.restauraNivel)
+router.post('/nivel/:id/restaura', NivelController.restauraNivel)
 
 //Exportar
 module.exports = router
